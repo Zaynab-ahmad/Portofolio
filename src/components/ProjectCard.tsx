@@ -5,15 +5,15 @@ import Image from "next/image";
 interface ProjectCardProps {
   badge: string;
   title: string;
-  description: string; // corrected spelling
+  description: string;
   color: "orange" | "blue" | "green";
   img: string;
   demoLink?: string;
   gitLink?: string;
-  reverse?: boolean; 
+  reverse?: boolean;
 }
 
-// خريطة لتحويل اللون إلى فئة Tailwind كاملة (يمكن تخصيص الدرجات)
+// Map color to Tailwind classes
 const colorToBgClass = {
   orange: "bg-orange-500",
   blue: "bg-blue-500",
@@ -34,15 +34,16 @@ function ProjectCard({
 
   return (
     <div
-      className={`w-full flex justify-between items-center gap-6 ${
-        reverse ? "flex-row-reverse" : "flex-row"
+      className={`w-full flex flex-col lg:flex-row justify-between items-center gap-6 ${
+        reverse ? "lg:flex-row-reverse" : ""
       }`}
     >
-      <div className="flex flex-col space-y-4 w-1/2">
+      {/* Text Section */}
+      <div className="flex flex-col space-y-4 w-full lg:w-1/2">
         <Badge text={badge} color={color} />
         <h3 className="font-bold text-2xl text-black">{title}</h3>
         <p>{description}</p>
-        <div className="flex space-x-2">
+        <div className="flex flex-wrap gap-2">
           {demoLink && (
             <Button
               text="Project Demo"
@@ -59,8 +60,9 @@ function ProjectCard({
           )}
         </div>
       </div>
-      <div className="w-1/2 relative h-full">
-        {" "}
+
+      {/* Image Section */}
+      <div className="w-full lg:w-1/2 h-64 relative mt-4 lg:mt-0">
         {img && (
           <Image
             src={img}
@@ -73,6 +75,5 @@ function ProjectCard({
     </div>
   );
 }
-
 
 export default ProjectCard;

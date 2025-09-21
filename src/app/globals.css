@@ -23,4 +23,15 @@
 body {
   color: var(--foreground);
   font-family: var(--font-railway-sans);
+  .hide-scrollbar {
+      -ms-overflow-style: none;
+      /* Internet Explorer 10+ and Edge */
+      scrollbar-width: none;
+      /* Firefox */
+    }
+  
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+      /* Safari and Chrome */
+    }
 }

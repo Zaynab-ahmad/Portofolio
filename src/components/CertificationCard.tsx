@@ -16,14 +16,12 @@ export default function CertificationCard({
         <p>“{description}”</p>
       </blockquote>
 
-      {/* PDF Preview */}
     
-      {/* View button */}
       <a
         href={certLink}
         target="_blank"
         rel="noopener noreferrer"
-        className="block text-center text-blue-500 hover:underline cursor-pointer "
+        className="block text-center text-orange-500 hover:underline cursor-pointer "
       >
         View Full Certification
       </a>

@@ -24,13 +24,17 @@ const NavBar: React.FC = () => {
     {
       label: "LinkedIn",
       icon: "FaLinkedinIn",
-      href: "https://linkedin.com/yourprofile",
+      href: "www.linkedin.com/in/zeinab-ahmad-0b25561b2",
     },
-    { label: "WhatsApp", icon: "FaWhatsapp", href: "https://wa.me/yournumber" },
+    {
+      label: "WhatsApp",
+      icon: "FaWhatsapp",
+      href: "https://wa.me/963969108928",
+    },
     {
       label: "Github",
       icon: "FaGithub",
-      href: "https://github.com/yourusername",
+      href: "https://github.com/Zaynab-ahmad",
     },
   ];
 

@@ -17,7 +17,7 @@ function FormField({
 }: FormFieldProp) {
   return (
     <div className="flex flex-col space-y-5">
-      <label htmlFor={labelname} className="text-white">
+      <label htmlFor={labelname} className="text-gray-800">
         {label}
       </label>
       {!textarea && (
@@ -27,7 +27,7 @@ function FormField({
           name={labelname}
           placeholder={placeholder}
           onChange={onChange}
-          className="bg-white p-3 rounded-lg w-full"
+          className="bg-gray-200 text-black p-3 rounded-lg w-full"
         />
       )}
       {textarea && (
@@ -36,7 +36,7 @@ function FormField({
           name={labelname}
           placeholder={placeholder}
           onChange={onChange}
-          className="bg-white p-3 rounded-lg w-full"
+          className="bg-gray-200 text-black p-3 rounded-lg w-full"
         />
       )}
     </div>

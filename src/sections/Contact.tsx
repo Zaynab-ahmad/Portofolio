@@ -3,11 +3,11 @@ import SecTitle from "@/ui/SecTitle"
 
 function Contact() {
   return (
-    <section className="bg-black flex flex-col justify-center items-center py-20">
+    <section className="bg-white flex flex-col justify-center items-center py-20">
       <div className="container">
         <SecTitle
           title="Get In Touch"
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
+          description="I'd love to hear from you! Whether you have a project idea, a question, or just want to say hello, feel free to reach out. Let's create something amazing together."
         />
         <Form />
       </div>

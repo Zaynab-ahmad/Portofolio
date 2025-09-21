@@ -55,33 +55,35 @@ function Certifications() {
     : certifications.slice(0, 4);
 
   return (
-    <div className="container w-full mx-auto py-20 bg-black text-white">
-      <SecTitle
-        title="Certifications"
-        description="Here are my professional certifications and achievements."
-      />
+    <div className=" bg-black text-white">
+      <div className="container w-full mx-auto py-20">
+        <SecTitle
+          title="Certifications"
+          description="Here are my professional certifications and achievements."
+        />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-        {displayedCertifications.map((cert) => (
-          <CertificationCard
-            key={cert.id}
-            title={cert.title}
-            description={cert.description}
-            certLink={cert.fileUrl}
-          />
-        ))}
-      </div>
-
-      {certifications.length > 4 && (
-        <div className="mt-10 text-center">
-          <button
-            onClick={() => setShowAll(!showAll)}
-            className="text-blue-500 font-bold hover:underline"
-          >
-            {showAll ? "Show Less" : "Show More"}
-          </button>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
+          {displayedCertifications.map((cert) => (
+            <CertificationCard
+              key={cert.id}
+              title={cert.title}
+              description={cert.description}
+              certLink={cert.fileUrl}
+            />
+          ))}
         </div>
-      )}
+
+        {certifications.length > 4 && (
+          <div className="mt-10 text-center">
+            <button
+              onClick={() => setShowAll(!showAll)}
+              className="text-orange-500 font-bold hover:underline"
+            >
+              {showAll ? "Show Less" : "Show More"}
+            </button>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

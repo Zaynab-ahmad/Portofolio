@@ -1,8 +1,9 @@
-import Hero from "@/components/Hero"
+import Hero from "@/sections/Hero"
 import NavBar from "@/components/NavBar"
 import Certifications from "@/sections/Certifications"
 import Contact from "@/sections/Contact"
 import Projects from "@/sections/Projects"
+import Footer from "@/sections/Footer"
 
 
 function page() {
@@ -14,6 +15,7 @@ function page() {
       <Projects/>
       <Certifications/>
       <Contact/>
+      <Footer/>
 
     </div>
   )

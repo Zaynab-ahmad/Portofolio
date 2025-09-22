@@ -48,10 +48,11 @@ function Projects() {
   const displayedProjects = showAll ? projects : projects.slice(0, 3);
 
   return (
-    <div className="container w-full mx-auto py-20">
+    <section id="projects" className="container w-full mx-auto py-20">
       <SecTitle
-        title="Case Studies"
-        description="Solving user & business problems since last 15+ years. Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        title="Projects"
+        description="With over a year of hands-on experience in Front-End development, I have demonstrated strong commitment, continuous growth, and excellence throughout my training and projects."
+        dark={false}
       />
 
       <div className="grid grid-cols-1 gap-20 mt-6">
@@ -80,7 +81,7 @@ function Projects() {
           </button>
         </div>
       )}
-    </div>
+    </section>
   );
 }
 

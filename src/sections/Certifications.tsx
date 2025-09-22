@@ -20,13 +20,11 @@ function Certifications() {
   const [showAll, setShowAll] = useState(false);
 
   useEffect(() => {
-    // build a query to order by createdAt (newest first)
     const q = query(
       collection(db, "certifications"),
       orderBy("createdAt", "desc")
     );
 
-    // subscribe to real-time updates
     const unsubscribe = onSnapshot(
       q,
       (snapshot) => {
@@ -44,22 +42,22 @@ function Certifications() {
       }
     );
 
-    return () => unsubscribe(); // cleanup listener
+    return () => unsubscribe(); 
   }, []);
 
   if (loading) return <p>Loading certifications...</p>;
 
-  // show only first 4 unless showAll is true
   const displayedCertifications = showAll
     ? certifications
     : certifications.slice(0, 4);
 
   return (
-    <div className=" bg-black text-white">
+    <div id="certifications" className=" bg-black text-white">
       <div className="container w-full mx-auto py-20">
         <SecTitle
           title="Certifications"
           description="Here are my professional certifications and achievements."
+          dark= {true}
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">

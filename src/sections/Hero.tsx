@@ -1,20 +1,65 @@
+"use client";
 import Image from "next/image";
-import React from "react";
+import { useEffect, useState } from "react";
 import profilePic from "../assets/Zaynab.Gh.Ahmad.jpg";
 
 function Hero() {
-  const languages = ["JavaScript", "CSS", "HTML5", "Tailwind", "Next.js", "React"];
+  const texts = [
+    "Hello I'm Zaynab Ahmad",
+    "Front-End Developer",
+    "UI/UX Learner",
+  ];
+
+  const [displayedText, setDisplayedText] = useState("");
+  const [index, setIndex] = useState(0); // لمكان الحرف
+  const [textIndex, setTextIndex] = useState(0); // لأي جملة
+  const [deleting, setDeleting] = useState(false);
+
+  useEffect(() => {
+    const currentText = texts[textIndex];
+
+    const interval = setInterval(() => {
+      if (!deleting && index < currentText.length) {
+        // كتابة
+        setDisplayedText((prev) => prev + currentText[index]);
+        setIndex((prev) => prev + 1);
+      } else if (deleting && index > 0) {
+        // مسح
+        setDisplayedText((prev) => prev.slice(0, -1));
+        setIndex((prev) => prev - 1);
+      } else if (index === currentText.length) {
+        // لما يخلص الكتابة -> يبدأ المسح بعد مهلة
+        setTimeout(() => setDeleting(true), 700);
+      } else if (index === 0 && deleting) {
+        // خلص المسح -> انتقل للجملة اللي بعدها
+        setDeleting(false);
+        setTextIndex((prev) => (prev + 1) % texts.length);
+      }
+    }, 150);
+
+    return () => clearInterval(interval);
+  }, [index, deleting, textIndex, texts]);
+
+  const languages = [
+    "JavaScript",
+    "CSS",
+    "HTML5",
+    "Tailwind",
+    "Next.js",
+    "React",
+  ];
 
   return (
-    <div className="bg-background w-full">
-      <div className="container mx-auto flex flex-col justify-around min-h-screen relative py-10">
+    <div id="hero" className="bg-background w-full">
+      <div className="container mx-auto flex flex-col justify-around min-h-screen relative pt-20 py-10">
         {/* Top Section */}
         <div className="flex flex-col lg:flex-row justify-between items-center gap-8">
           {/* Text Section */}
           <div className="flex flex-col space-y-6 w-full md:w-1/2 order-2 md:order-1">
             <div className="flex flex-col space-y-2.5">
               <h1 className="font-extrabold text-[32px] md:text-[44px] text-white">
-                Zaynab Ahmad
+                {displayedText}
+                <span className="animate-pulse">|</span>
               </h1>
               <p className="font-plex leading-6 text-gray-300">
                 I am a passionate{" "}
@@ -56,8 +101,6 @@ function Hero() {
         <div className="flex flex-col space-y-4 mt-10 w-full">
           <p className="text-white font-medium">Worked With</p>
           <div className="flex space-x-4 pb-2 w-full overflow-x-scroll hide-scrollbar">
-            {" "}
-            {/* Add 'hide-scrollbar' here */}
             {languages.map((item, i) => (
               <div
                 key={i}
